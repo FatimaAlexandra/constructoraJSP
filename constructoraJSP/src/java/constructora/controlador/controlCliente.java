@@ -5,12 +5,16 @@
  */
 package constructora.controlador;
 
+import constructora.entidades.Cliente;
+import constructora.modelo.DaoCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -27,20 +31,50 @@ public class controlCliente extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    Cliente cli;
+    int r = 0;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet controlCliente</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet controlCliente at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            RequestDispatcher res;
+            
+            DaoCliente ob1 = new DaoCliente();
+            
+            if(request.getParameter("insertar")!=null){
+                try {
+                    
+                    String recibirContra = request.getParameter("contra");
+                    String contraEncryptada = DigestUtils.sha1Hex(recibirContra); 
+                    
+                    cli = new Cliente(request.getParameter("usuario"),
+                            request.getParameter("correo"),
+                            request.getParameter("nombre"),
+                            request.getParameter("telefono"),
+                            request.getParameter("dui"),
+                            request.getParameter("fechaNacimiento"),
+                            request.getParameter("direccion"),
+                            contraEncryptada);
+                    r=ob1.insertar(cli);   
+
+                    if(r>0){
+                        request.setAttribute("r", "Felicidades, Su registro finalizo exitosamente.!!");
+                    }else{
+                        request.setAttribute("r", "No pudo ser registrado:( ");
+                    }                    
+                    
+                } catch (Exception e) {
+                      request.setAttribute("error", e.getMessage());
+                }
+            
+            }
+            
+            res = request.getRequestDispatcher("vistaCliente.jsp");
+            res.forward(request, response);
+            
+            
         }
     }
 
