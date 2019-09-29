@@ -40,11 +40,11 @@ public class ControlEmpleado extends HttpServlet {
             int r=0;
             RequestDispatcher res;
             DaoEmpleado ob1= new DaoEmpleado();
-            DaoUsuario ob2= new DaoUsuario();
+            //DaoUsuario ob2= new DaoUsuario();
             if(request.getParameter("mostrar")!=null){
                 try {
                     request.setAttribute("empleados", ob1.mostrar());
-                    request.setAttribute("usuarios", ob2.mostrar());
+                    //request.setAttribute("usuarios", ob2.mostrar());
                 } catch (Exception e) {
                     request.setAttribute("error", e.getMessage());
                 }
@@ -57,10 +57,11 @@ public class ControlEmpleado extends HttpServlet {
                     emp=new Empleado(request.getParameter("nombre"), request.getParameter("direccion"),
                             request.getParameter("telefono"),request.getParameter("dui"),
                             request.getParameter("fechaNacimiento"),request.getParameter("tipoEmpleado"),
-                            Double.valueOf(request.getParameter("pagoDia")),new Usuario(Integer.valueOf(request.getParameter("idUsuario"))));
+                            Double.valueOf(request.getParameter("pagoDia")), 
+                            Integer.valueOf(request.getParameter("idUsuario")));
                     r= ob1.insertar(emp); 
                     request.setAttribute("empleados", ob1.mostrar());
-                    request.setAttribute("usuarios", ob2.mostrar());
+                   // request.setAttribute("usuarios", ob2.mostrar());
                                        
                     if(r>0)
                         request.setAttribute("r", "Su registro se ha guardado exitosamente");
@@ -81,10 +82,10 @@ public class ControlEmpleado extends HttpServlet {
                             request.getParameter("telefono"),request.getParameter("dui"),
                             request.getParameter("fechaNacimiento"),request.getParameter("tipoEmpleado"),
                             Double.valueOf(request.getParameter("pagoDia")),
-                            new Usuario(Integer.valueOf(request.getParameter("idUsuario"))));
+                            Integer.valueOf(request.getParameter("idUsuario")));
                     r= ob1.modificar(emp); 
                     request.setAttribute("empleados", ob1.mostrar());
-                    request.setAttribute("usuarios", ob2.mostrar());
+                    //request.setAttribute("usuarios", ob2.mostrar());
                                      
                     if(r>0)
                         request.setAttribute("r", "Su registro se ha modificado exitosamente");
@@ -102,7 +103,7 @@ public class ControlEmpleado extends HttpServlet {
                     emp=new Empleado(Integer.valueOf(request.getParameter("idEmpleado")));
                     r= ob1.eliminar(emp); 
                     request.setAttribute("empleados", ob1.mostrar());
-                    request.setAttribute("usuarios", ob2.mostrar());
+                   // request.setAttribute("usuarios", ob2.mostrar());
                                      
                     if(r>0)
                         request.setAttribute("r", "Su registro se ha eliminado exitosamente");

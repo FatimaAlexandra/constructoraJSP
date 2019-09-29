@@ -171,7 +171,7 @@
 
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="#" class="full-width">
+						<a href="vistaEmpleado.jsp" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-accounts"></i>
 							</div>

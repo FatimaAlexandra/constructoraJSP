@@ -18,13 +18,13 @@ public class Empleado {
     private String fechaNacimiento;
     private String tipoEmpleado;
     private double pagoDia;
-    private Usuario idUsuario;
+    private int idUsuario;
     private int estado;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario, int estado) {
+    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, int idUsuario, int estado) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -36,7 +36,7 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public Empleado(int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario, int estado) {
+    public Empleado(int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, int idUsuario, int estado) {
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -49,7 +49,7 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario) {
+    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, int idUsuario) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -60,7 +60,7 @@ public class Empleado {
         this.idUsuario = idUsuario;
     }
 
-    public Empleado(int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario) {
+    public Empleado(int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, int idUsuario) {
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -70,6 +70,16 @@ public class Empleado {
         this.tipoEmpleado = tipoEmpleado;
         this.pagoDia = pagoDia;
         this.idUsuario = idUsuario;
+    }
+
+    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.dui = dui;
+        this.fechaNacimiento = fechaNacimiento;
+        this.tipoEmpleado = tipoEmpleado;
+        this.pagoDia = pagoDia;
     }
 
     
@@ -151,13 +161,15 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public Usuario getIdUsuario() {
+    public int getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Usuario idUsuario) {
+    public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
+
+   
 
    
     
