@@ -10,10 +10,6 @@ package constructora.entidades;
  * @author jorge Alberto
  */
 public class Empleado {
-    private int idUsuario;
-    private String usuario;
-    private String correo;
-    private String contraseña;
     private int idEmpleado;
     private String nombre;
     private String direccion;
@@ -22,17 +18,13 @@ public class Empleado {
     private String fechaNacimiento;
     private String tipoEmpleado;
     private double pagoDia;
-    //private String idUsuario;
+    private Usuario idUsuario;
     private int estado;
 
     public Empleado() {
     }
 
-    public Empleado(String usuario, String correo, String contraseña, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia) {
-        this.usuario = usuario;
-        this.correo = correo;
-        this.contraseña = contraseña;
-        //this.idEmpleado = idEmpleado;
+    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario, int estado) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -40,29 +32,12 @@ public class Empleado {
         this.fechaNacimiento = fechaNacimiento;
         this.tipoEmpleado = tipoEmpleado;
         this.pagoDia = pagoDia;
-       // this.estado = estado;
-    }
-
-    public Empleado(int idUsuario, String usuario, String correo, String contraseña, String avatar, int idEmpleado, String nombre, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, int estado) {
         this.idUsuario = idUsuario;
-        this.usuario = usuario;
-        this.correo = correo;
-        this.contraseña = contraseña;
-        this.idEmpleado = idEmpleado;
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.dui = dui;
-        this.fechaNacimiento = fechaNacimiento;
-        this.tipoEmpleado = tipoEmpleado;
-        this.pagoDia = pagoDia;
         this.estado = estado;
     }
 
-    public Empleado(String usuario, String correo, String contraseña, int idUsuario, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia,int idEmpleado) {
-        this.usuario = usuario;
-        this.correo = correo;
-        this.contraseña = contraseña;
-        this.idUsuario = idUsuario;
+    public Empleado(int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario, int estado) {
+        this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -70,14 +45,22 @@ public class Empleado {
         this.fechaNacimiento = fechaNacimiento;
         this.tipoEmpleado = tipoEmpleado;
         this.pagoDia = pagoDia;
-        this.idEmpleado = idEmpleado;
+        this.idUsuario = idUsuario;
+        this.estado = estado;
     }
 
-    public Empleado(int idUsuario, String usuario, String correo, String contraseña, int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia) {
+    public Empleado(String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.dui = dui;
+        this.fechaNacimiento = fechaNacimiento;
+        this.tipoEmpleado = tipoEmpleado;
+        this.pagoDia = pagoDia;
         this.idUsuario = idUsuario;
-        this.usuario = usuario;
-        this.correo = correo;
-        this.contraseña = contraseña;
+    }
+
+    public Empleado(int idEmpleado, String nombre, String direccion, String telefono, String dui, String fechaNacimiento, String tipoEmpleado, double pagoDia, Usuario idUsuario) {
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -86,40 +69,11 @@ public class Empleado {
         this.fechaNacimiento = fechaNacimiento;
         this.tipoEmpleado = tipoEmpleado;
         this.pagoDia = pagoDia;
+        this.idUsuario = idUsuario;
     }
+
     
 
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public Empleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
@@ -196,6 +150,15 @@ public class Empleado {
     public void setEstado(int estado) {
         this.estado = estado;
     }
-    
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+   
     
 }
