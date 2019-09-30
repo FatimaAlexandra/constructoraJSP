@@ -4,9 +4,17 @@
         <servlet-name>controlCliente</servlet-name>
         <servlet-class>constructora.controlador.controlCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controlLogin</servlet-name>
+        <servlet-class>constructora.controlador.controlLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controlCliente</servlet-name>
         <url-pattern>/controlCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controlLogin</servlet-name>
+        <url-pattern>/controlLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

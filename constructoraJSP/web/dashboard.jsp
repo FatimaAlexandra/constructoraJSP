@@ -4,7 +4,7 @@
     Author     : Alexis
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" session="true" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +25,19 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+    <%
+        HttpSession sesion = request.getSession();
+        String usuario = "";
+        String rol="";
+        
+        if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("rol")!=null){
+            usuario = sesion.getAttribute("usuario").toString();
+            rol = sesion.getAttribute("rol").toString();
+        }else{
+            out.println("<script>location.replace('index.jsp');</script>");
+        }
+    
+    %>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -108,7 +121,7 @@
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">Cerrar Sesion</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small>Usuario</small></li>
+					<li class="text-condensedLight noLink" ><small><%out.println(""+usuario+"");%></small></li>
 					<li class="noLink">
 						<figure>
 							<img src="imagenes/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -131,8 +144,9 @@
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						Nombre de Usuario<br>
-						<small>Administrador</small>
+                                            <%out.println(""+usuario+"");%><br>
+                                            <i style="color: greenyellow;" class="zmdi zmdi-shield-check"></i> 
+                                            <small style="color: greenyellow;"><%out.println(""+rol+"");%></small>                                                                                       
 					</span>
 				</figcaption>
 			</figure>
@@ -315,7 +329,8 @@
 				<i class="zmdi zmdi-accounts tile-icon"></i>
 			</article>
 			
-		</section>		
+		</section>
+                      
 	</section>
 	<!-- Fin pageContent -->
 </body>
